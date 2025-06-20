@@ -20,7 +20,7 @@ export default function TechNews() {
 
   const fetchNews = async () => {
     try {
-      const response = await axios.get("https://newsapi.org/v2/top-headlines?category=technology&country=us&pageSize=50&apiKey=ff603ed69d734d60a7defb7d7de9029c");
+      const response = await axios.get(process.env.NEWS_API);
       const filteredArticles = response.data.articles.filter(article => 
         TECH_KEYWORDS.some(keyword => 
           article.title?.toLowerCase().includes(keyword.toLowerCase()) || 
